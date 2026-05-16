@@ -3,7 +3,7 @@ function App() {
     <>
       Hello
     </>
-  )
+  );
 }
 
-export default App
+export default App;
