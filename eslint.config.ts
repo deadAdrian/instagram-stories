@@ -1,7 +1,7 @@
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import pluginReact from 'eslint-plugin-react';
+import react from 'eslint-plugin-react';
 import { defineConfig } from 'eslint/config';
 import stylistic from '@stylistic/eslint-plugin';
 
@@ -11,6 +11,12 @@ export default defineConfig([
     plugins: {
       js,
       '@stylistic': stylistic,
+      react,
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
     extends: ['js/recommended'],
     languageOptions: {
@@ -21,8 +27,8 @@ export default defineConfig([
     },
   },
   ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  pluginReact.configs.flat['jsx-runtime'],
+  react.configs.flat.recommended,
+  react.configs.flat['jsx-runtime'],
   stylistic.configs.customize({
     indent: 2,
     quotes: 'single',
